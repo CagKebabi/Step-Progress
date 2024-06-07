@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background:#0a0a0a;
+            color:#ccc;
+            font-family:"Staatliches", sans-serif;
+            margin:0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .spacer {
+            height:60vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .lineSection {
+            border-top: 1px solid #383838;
+            padding: 42px 42px 42px 0;
+            background:#151515;
+            display:flex;
+            align-items:center;
+        }
+
+        .numberCont {
+            display: flex;
+        }
+
+        .textCont {
+            padding: 12px 8%;
+        }
+
+        .textCont h4 {
+            font-size: 45px;
+            margin-bottom: 12px !important;
+            line-height: 40px;
+            /* color: white !important; */
+        }
+
+        .textCont div {
+            font-size: 25px;
+            line-height: 1.4;
+        }
+
+        .number {
+            font-size:180px;
+            padding: 0 42px;
+            /* width:140px; */
+            text-align:center;
+            /* color: white !important; */
+        }
+
+        .lineHolder {
+            width:20px;
+            height:200px;
+            overflow:hidden;
+            background:#222;
+        }
+
+        .line {
+            width:100%;
+            height:100px;
+            background:#ff7b3e; /* orange */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="spacer">
+        <h1>scroll down</h1>
+    </div>
+    <div class="lineSections">
+        <div class="lineSection">
+            <div class="numberCont">
+                <div class="number" style="color: rgb(229 123 9);">01</div>
+                <div class="lineHolder">
+                    <div class="line"></div>
+                </div>
+            </div>
+            <div class="textCont">
+                <h4 style="color: rgb(229 123 9);">Exploring the problem</h4>
+                <div>A successful marketing plan relies heavily on the pulling-power of advertising copy. Writing result-oriented ad copy is difficult, as it must convince consumers.</div>
+            </div>
+        </div>
+        <div class="lineSection">
+            <div class="numberCont">
+                <div class="number" style="color: rgb(37, 199, 217);">02</div>
+                <div class="lineHolder">
+                    <div class="line"></div>
+                </div>
+            </div>
+            <div class="textCont">
+                <h4 style="color: rgb(37, 199, 217);">Finding the solution</h4>
+                <div>A successful marketing plan relies heavily on the pulling-power of advertising copy. Writing result-oriented ad copy is difficult, as it must convince consumers.</div>
+            </div>
+        </div>
+        <div class="lineSection">
+            <div class="numberCont">
+                <div class="number" style="color: rgb(4, 191, 138);">03</div>
+                <div class="lineHolder">
+                    <div class="line"></div>
+                </div>
+            </div>
+            <div class="textCont">
+                <h4 style="color: rgb(4, 191, 138);">Prototyping</h4>
+                <div>A successful marketing plan relies heavily on the pulling-power of advertising copy. Writing result-oriented ad copy is difficult, as it must convince consumers.</div>
+            </div>
+        </div>
+        <div class="lineSection">
+            <div class="numberCont">
+                <div class="number" style="color: rgb(242, 211, 56);">04</div>
+                <div class="lineHolder">
+                    <div class="line"></div>
+                </div>
+            </div>
+            <div class="textCont">
+                <h4 style="color: rgb(242, 211, 56);">Building the product</h4>
+                <div>A successful marketing plan relies heavily on the pulling-power of advertising copy. Writing result-oriented ad copy is difficult, as it must convince consumers.</div>
+            </div>
+        </div>
+        <div class="lineSection">
+            <div class="numberCont">
+                <div class="number" style="color: rgb(242, 48, 48);">05</div>
+                <div class="lineHolder">
+                    <div class="line"></div>
+                </div>
+            </div>
+            <div class="textCont">
+                <h4 style="color: rgb(242, 48, 48);">Launch and support</h4>
+                <div>A successful marketing plan relies heavily on the pulling-power of advertising copy. Writing result-oriented ad copy is difficult, as it must convince consumers.</div>
+            </div>
+        </div>
+    </div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script>
+        const colors = ["#e57b09", "#25C7D9",  "#04BF8A", "#F2D338", "#F23030"]
+
+        gsap.set(".line", {background:gsap.utils.wrap(colors)})
+
+        const animation = gsap.fromTo(".line", {y:-100}, {y:200, ease:"none", duration:1, stagger:0.7})
+
+        ScrollTrigger.create({
+            trigger: ".lineSections",
+            start: "top 300",
+            end:"bottom 300",
+            markers:false,
+            animation: animation,
+            scrub:1
+        })
+    </script>
+</body>
+</html>
